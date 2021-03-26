@@ -5,9 +5,15 @@ import { StyleSheet, TextInput, View , Button, Platform} from 'react-native';
 export default function App() {
   const [outputText, setOutputText] = useState('Cipii e cel mai tare!')
   return (
-      <View>
+      <View style={
+          {padding : 50}
+      }>
           <View>
-              <TextInput />
+              <TextInput
+                  placeholder="Input"
+                  style={{borderBottomWidth: 1, borderColor: "black", padding: 10}}
+
+              />
               <Button title="Add"/>
           </View>
       </View>
