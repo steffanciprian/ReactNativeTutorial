@@ -15,7 +15,9 @@ export default function App() {
             <GoalInput onAddGoal={addGoalHandler}/>
             <FlatList data={goals} renderItem=
                 {itemData =>
-                    <GoalItem title={itemData.item.value}
+                    <GoalItem
+                        onDelete={() => console.log("ia sa vedem")}
+                        title={itemData.item.value}
                     />
                 }>
             </FlatList>
@@ -27,6 +29,4 @@ const styles = StyleSheet.create({
     screenStyle: {
         padding: 30
     },
-
-
 });
