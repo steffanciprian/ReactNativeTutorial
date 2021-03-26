@@ -8,11 +8,22 @@ export default function App() {
       <View style={
           {padding : 50}
       }>
-          <View>
+          <View style={
+              {
+              flexDirection: "row",
+              justifyContent: 'space-between',
+              alignItems: "center"
+              }}
+          >
               <TextInput
                   placeholder="Input"
-                  style={{borderBottomWidth: 1, borderColor: "black", padding: 10}}
-
+                  style={{
+                      width:"80%",
+                      borderBottomWidth: 1,
+                      borderColor: "black",
+                      padding: 10,
+                      textAlign:"center",
+                  }}
               />
               <Button title="Add"/>
           </View>
