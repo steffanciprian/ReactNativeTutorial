@@ -26,7 +26,7 @@ export default function App() {
 
             <View>
                 {goals.map((goal) => {
-                    return <Text>key={goal} {goal}</Text>
+                    return <View key={goal} style={styles.textStyleGiveToWrappingView}><Text>  {goal}</Text></View>
                 })}
             </View>
         </View>
@@ -35,7 +35,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
     screenStyle: {
-        padding: 50
+        padding: 30
     },
     inputContainerStyle: {
         flexDirection: "row",
@@ -49,6 +49,13 @@ const styles = StyleSheet.create({
         padding: 10,
         textAlign: "center",
     },
+    textStyleGiveToWrappingView: {
+        padding: 10,
+        marginVertical: 1,
+        backgroundColor: "grey",
+        borderColor: "black",
+        borderWidth: .5,
 
+    }
 
 });
