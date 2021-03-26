@@ -1,12 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 const GoalItem = props => {
 
-    return <View
-        style={styles.textStyleGiveToWrappingView}>
-        <Text>{props.title}</Text>
-    </View>
+    return (
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={props.onDelete}>
+            <View
+                style={styles.textStyleGiveToWrappingView}>
+                <Text>{props.title}</Text>
+            </View>
+        </TouchableOpacity>
+    )
 };
 const styles = StyleSheet.create({
     textStyleGiveToWrappingView: {
