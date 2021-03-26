@@ -1,6 +1,5 @@
-import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, View, Button, Platform} from 'react-native';
+import {Button, StyleSheet, TextInput, View} from 'react-native';
 
 export default function App() {
     const [outputText, setOutputText] = useState('Cipii e cel mai tare!')
