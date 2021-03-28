@@ -9,18 +9,18 @@ const GoalInput = props => {
     }
 
     const addGoalHandler = () => {
-        props.onAddGoal(enteredGoal);
+        props.addGoal(enteredGoal);
         setEnteredGoal('');
     }
 
     const cancelGoalHandler = () => {
-        props.cancel();
+        props.cancelGoal();
         setEnteredGoal('');
 
     }
 
     return (
-        <Modal visible={props.visible} animationType={"slide"}>
+        <Modal visible={props.isModalVisible} animationType={"slide"}>
             <View style={styles.inputContainerStyle}>
                 <TextInput
                     style={styles.textInputStyle}

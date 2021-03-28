@@ -5,42 +5,42 @@ import GoalInput from "./components/GoalInput";
 
 export default function App() {
     const [goals, setGoals] = useState([]);
-    const [isShowModal, setIsShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
-
-    const addGoalHandler = (goalTitle) => {
-        setGoals(goals => [...goals, {id: Math.random().toString(), value: goalTitle}]);
-        setIsShowModal(false)
-
+    const modalAppear = () => {
+        setShowModal(true);
     }
 
-    const cancelAddingGoal = () => {
-        setIsShowModal(false);
+    const addGoalHandler = goal => {
+        if (goal !== '') {
+            setGoals(goals => [...goals, {id: Math.random().toString(), value: goal}]);
+            setShowModal(false)
+        } else {
+            alert("Please set a goal");
+        }
+    }
+
+    const cancelGoalHandler = () => {
+        setShowModal(false);
     }
 
     const deleteGoalHandler = goalId => {
-        console.log(goalId);
-        setGoals(goals => {
-            return goals.filter(goal => goal.id !== goalId);
-        })
+        setGoals(goals => goals.filter(goal => goal.id !== goalId))
     }
 
     return (
         <View style={styles.screenStyle}>
-            <Button title="Add New Goal" onPress={() => setIsShowModal(true)}/>
-            <GoalInput visible={isShowModal} onAddGoal={addGoalHandler} cancel={cancelAddingGoal}/>
+            <Button title="Add New Goal" onPress={modalAppear}/>
+            <GoalInput isModalVisible={showModal} addGoal={addGoalHandler} cancelGoal={cancelGoalHandler}/>
             <FlatList
                 data={goals}
-                renderItem={itemData => <GoalItem
-                    id={itemData.item.id}
-                    onDelete={deleteGoalHandler}
-                    title={itemData.item.value}/>
+                renderItem={itemData =>
+                    <GoalItem id={itemData.item.id} deleteGoal={deleteGoalHandler} title={itemData.item.value}/>
                 }>
             </FlatList>
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     screenStyle: {
         padding: 30,
