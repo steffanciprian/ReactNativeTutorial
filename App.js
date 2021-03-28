@@ -10,7 +10,12 @@ export default function App() {
 
     const addGoalHandler = (goalTitle) => {
         setGoals(goals => [...goals, {id: Math.random().toString(), value: goalTitle}]);
+        setIsShowModal(false)
 
+    }
+
+    const cancelAddingGoal = () => {
+        setIsShowModal(false);
     }
 
     const deleteGoalHandler = goalId => {
@@ -23,7 +28,7 @@ export default function App() {
     return (
         <View style={styles.screenStyle}>
             <Button title="Add New Goal" onPress={() => setIsShowModal(true)}/>
-            <GoalInput visible={isShowModal} onAddGoal={addGoalHandler}/>
+            <GoalInput visible={isShowModal} onAddGoal={addGoalHandler} cancel={cancelAddingGoal}/>
             <FlatList
                 data={goals}
                 renderItem={itemData => <GoalItem
@@ -38,6 +43,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
     screenStyle: {
-        padding: 30
+        padding: 30,
     },
 });

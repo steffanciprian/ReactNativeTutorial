@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     textStyleGiveToWrappingView: {
         padding: 10,
         marginVertical: 1,
-        backgroundColor: "grey",
         borderColor: "black",
         borderWidth: .5,
 
