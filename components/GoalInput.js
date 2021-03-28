@@ -23,8 +23,8 @@ const GoalInput = props => {
 };
 const styles = StyleSheet.create({
     inputContainerStyle: {
-        flexDirection: "row",
-        justifyContent: 'space-between',
+        flex: 1,
+        justifyContent: "center",
         alignItems: "center"
     },
     textInputStyle: {
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         borderColor: "black",
         padding: 10,
         textAlign: "center",
+        marginBottom: 5,
     },
 })
 export default GoalInput;
